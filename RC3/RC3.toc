@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Functions}{1}{0}{1}
+\beamer@sectionintoc {2}{Sequence}{8}{0}{2}
+\beamer@sectionintoc {3}{Metric Space}{18}{0}{3}
+\beamer@sectionintoc {4}{Exercises}{24}{0}{4}
