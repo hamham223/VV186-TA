@@ -1,0 +1,500 @@
+\documentclass{beamer}
+\renewcommand\thesection{\arabic{section}}
+\newcommand{\myfont}{\rmfamily\normalsize\upshape\mdseries}
+\newcommand{\degree}{^\circ}
+\title{\sffamily Review V(Slides 267 - 331)}
+\subtitle{\textbf{Differentiation}\\ }
+\institute[UM-SJTU JI]{University of Michigan-Shanghai Jiao Tong University Joint Institute}
+\author{HamHam}
+\usepackage{graphicx}
+\usepackage{picinpar}
+\usepackage{indentfirst}
+\usepackage{chemformula}
+\usepackage{geometry}
+\usepackage{subfigure}
+\usepackage{appendix}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{multicol,multirow,multido}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{textpos}
+\usepackage{booktabs}
+
+\usetheme[dove]{Boadilla}
+\usecolortheme{dolphin}
+\useoutertheme{miniframes}
+\begin{document}
+    \usebackgroundtemplate{\tikz\node[opacity=0.3]{
+    \includegraphics[width=\paperwidth,
+    height=\paperheight]{hamster.jpg}
+    };}
+\begin{titlepage}
+    \begin{center}
+        VV186 - Honors Mathmatics II
+    \end{center}
+\end{titlepage}
+\myfont
+
+
+
+\section{Introduction}
+\begin{frame}
+    \frametitle{Differentiation -- An Introduction}
+
+In order to investigate a function's derivative, we should first take a close look of \textbf{Linear map}.
+
+\vspace{2em}
+\textbf{Definition : } A linear map on $\mathbb{R}$ is a function given by :
+\begin{equation*}
+    L: \mathbb{R}\rightarrow\mathbb{R}, \qquad L(x)=\alpha x, \alpha \in \mathbb{R}
+\end{equation*}
+
+\vspace{1em}
+Clearly, such a function has lots of good properties, which made our discussion becomes easier.\\
+\vspace{1em}
+In this perspective, we would like to \emph{approximate} any functions which we are interested in by a linear map. And if 
+such linear map exists, we say this function is \emph{differentiable}.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Differentiation -- An Introduction}
+Translating into mathematical language...\\
+\vspace{2em}
+\textbf{Definition : } 
+    Let $\Omega\subseteq\mathbb{R}$ be a set and $x\in \text{int}\Omega$. Moreover, Let $f:\Omega\rightarrow \mathbb{R}$ be a real function. 
+    Then we say $f$ is \textbf{differentiable} if there exists a linear map $L_x$ such that for all sufficiently small $h\in\mathbb{R}$, 
+\begin{equation*}
+    f(x+h)=f(x)+L_x(h)+o(h)\quad as\ h\rightarrow 0
+\end{equation*}
+This linear map is \textbf{unique}, if it exists. \\
+\vspace{1em}
+\textbf{We call $L_x$ "the derivative of $f$ at $x$".}
+ If $f$ is differentiable at all points of some open 
+set $U\subseteq \Omega$, we say $f$ is differentiable on $U$. 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Derivative}
+Common misunderstandings:\\
+\vspace{0.5em}
+    \begin{center}
+        $L_x$ is a number for a fixed $x\in \Omega$, because $L_x=\alpha$.
+    \end{center}
+\vspace{0.5em}
+\hspace{1em}
+$L_x$ is \textbf{not a number}, but a \textbf{linear map}, or one can say "linear function", so it essentially is a \emph{function}.
+$L_x\cdot h=\alpha\cdot h$ (for some $\alpha$) doesn't mean $L_x=\alpha$.\\
+\hspace{1em} To see this, one can consider a function given by 
+\begin{equation*}
+    f(x)=2x
+\end{equation*}
+,which doesn't mean $f=2$.\\
+
+\begin{block}{Linear Map}
+    \begin{itemize}
+        \item A more general case.
+    \end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{Derivative}
+
+    Common misunderstandings:\\
+\vspace{0.5em}
+    \begin{center}
+        For $f(x)=x^4$, $f'(x)=4x^3$, so $L_x$ may not be linear
+    \end{center}
+\vspace{0.5em}
+
+\hspace{1em} You are confusing "derivative at a point" with "function that gives derivative".
+At certain point $x$, $4x^3$ is just a number in $\mathbb{R}$. Using our notation for $L_x$(or $f~'(x))$, 
+we can express $L_x$ as 
+
+\begin{equation*}
+    L_x(\cdot)=4x^3(\cdot)
+\end{equation*}
+, the \emph{variable} of $L_x$ is not $x$, so $L_x$ is \textbf{linear} for its input $(\cdot)$\\
+\vspace{1em}
+Given a differentiable function $f:\Omega\rightarrow\mathbb{R}$, the function 
+that gives a derivative can be denoted by $L:(\Omega\rightarrow\mathbb{R}) \to (\Omega\rightarrow\mathbb{R}),\ L(\cdot)(x)=L_x(\cdot)$.\\
+\textbf{It is a function that maps function to function}.
+
+    
+\end{frame}
+\begin{frame}
+    \frametitle{Derivative}
+Common misunderstandings:\\
+\vspace{0.5em}
+    \begin{center}
+        The derivative of $f$ at $x$ is a line passing through $(x,f(x))$
+    \end{center}
+\vspace{0.5em}
+
+\hspace{1em} Although it is usually a good idea to sketch something to help you to understand some mathematical concepts, but you always need to 
+aware of the essential reason why such a graph make sense.\\
+\vspace{1em}
+\hspace{1em} The derivative of $f$ at $x$ is a \emph{function}, not a graph. We simply use the graph to illustrate our function sometimes, in 
+this case($\mathbb{R}$), it will be a straight line, but in other case, it can be more complicated.
+
+\hspace{1em} 
+\end{frame}
+
+
+\section{Rules of Differentiation}
+\begin{frame}
+    \frametitle{Rules of Differentiation}
+We now assume both $f$ and $g$ are differentiable functions, then:
+\begin{itemize}
+    \item $(f+g)'(x)=f'(x)+g'(x)$
+    \vspace{1em}
+    \item $(f\cdot g)'(x)=f'(x)g(x)+f(x)g'(x)$
+    \vspace{1em}
+    \item $(f\circ g)'(x)=f'(g(x))g'(x)$
+    \vspace{1em}
+    \item $(\frac{f}{g})'(x)=\frac{f'(xg(x)-f(x)g'(x))}{g^2(x)}$
+    \vspace{1em}
+\end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Exercise}
+1. \textcolor{red}{Practical calculation is really important!}
+ Please calculate the derivatives of the following functions.
+\begin{itemize}
+    \item $(2x+5x^2)^6$
+    \vspace{0.3em}
+    \item $\frac{\sqrt{x}}{x+1}$
+    \vspace{0.3em}
+    \item $\sqrt[3]{\frac{3x^2+1}{x^2+1}}$
+\end{itemize}
+\end{frame}
+\begin{frame}
+    2. More general Cases! Please calculate following functions' derivative.\\(Suppose $g'$ always exists and doesn't vanish)
+    \begin{enumerate}
+        \item[i.]   $f(x)=g(x\cdot g(a))$
+        \item[ii.]  $f(x)=g(x+g(x))+\frac{1}{g(x)}$ 
+        \item[iii.] $f(x) =g(x)(x-a)$ 
+    \end{enumerate}
+    
+    \end{frame}
+
+\begin{frame}
+    \frametitle{Inverse Function Theorem}
+    \hspace{1em}
+    Let $I$ be an open interval and let $f : I \to \mathbb{R}$ be
+    differentiable and strictly monotonic. Then the inverse map
+    $f~^{-1} : f~(I~) \to I$ exists and is differentiable at all points $y \in f (I~)$ for
+    which $f~'(f~^{-1}(y)) \neq 0$. 
+     \large{$$(f~^{-1})'(y)=\frac{1}{f~'(f~^{-1}(y))}$$}
+    \begin{block}{Demo}
+        \begin{itemize}
+            \item Calculate $(\arctan x)'$
+        \end{itemize}
+    \end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{L'Hopital's Rule}
+    \begin{center}
+    \vspace{1em}
+     \large{$\underset{x\searrow b}{\lim}\frac{f(x)}{g(x)}=\underset{x\searrow b}{\lim}\frac{f'(x)}{g'(x)}$
+    , if $\underset{x\searrow b}{\lim}\frac{f(x)}{g(x)}=\frac{0}{0}\text{ or }\frac{\infty}{\infty}$ and $\underset{x\searrow b}{\lim}\frac{f'(x)}{g'(x)}$ exists.}
+    \end{center}
+    \vspace{2em}
+    \begin{block}{What is wrong?}
+        \begin{equation*}
+            \underset{x\rightarrow 1}{\lim}\frac{x^3-x-2}{x^2-3x+2}=\underset{x\rightarrow 1}{\lim}\frac{3x^2-1}{2x-3}=\underset{x\rightarrow 1}{\lim}\frac{6x}{2}=3
+        \end{equation*}
+    \end{block}
+    \vspace{1em}
+    Put a gun on your head: do write down the word \textcolor{green}{"L'Hopital"} !
+\end{frame}
+\section{Applications}
+
+\begin{frame}
+    \frametitle{Application of Differentiation}
+We list some useful Results and Theorems.
+\begin{itemize}
+    \item[1.] If a real function is differentiable at $x$, then it is continuous at $x$.
+    \vspace{0.5em}
+    \item[2.] \emph{Hierarchy} of local smoothness.
+    \begin{enumerate}
+        \item Arbitrary function
+        \item Function continuous at $x$
+        \item Function differentiable at $x$
+        \item Function continuously differentiable at $x$
+        \item Function twice differentiable at $x$
+        \item \dots
+    \end{enumerate}
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Application of Differentiation}
+Result and Theorems.\\
+\begin{enumerate}
+    \item[3.] Let $f$ be a function and $(a,b)\subseteq \text{dom}\  f$ and open interval. If $x\in(a,b)$ is a 
+        maximum(or minimum) point of $f\subseteq(a,b)$ and if $f$ is differentiable at $x$, then $f~'(x)=0$.
+    \vspace{0.5em}
+    \item[4.] Let $f$ be a function and $[a,b]\subseteq \text{dom}\  f$. Assume that $f$ is differentiable on $(a,b)$ and 
+        $f(a)=f(b)$. Then there is a number $x\in(a,b)$ such that $f~'(x)=0$.\\
+        \vspace{0.3em}
+        Comment. We need the requirement that $f$ is \textbf{differentiable everywhere} on $(a,b)$. Otherwise, a 
+        counterexample can be:
+        \begin{equation*}
+            [a,b]=[0,2],\quad 
+            \begin{cases}
+                f(x)=x\qquad &x\in[0,1]\\
+                f(x)=2-x\quad &x\in(1,2]
+            \end{cases}
+        \end{equation*}
+        
+\end{enumerate}
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Application of Differentiation}
+Result and Theorems.\\
+\begin{enumerate}
+    \item[5.] Let $[a,b]\subseteq\text{dom}\ f$ be a function that is continuous on $[a,b]$ and differentiable on $(a,b)$.
+        Then there exists a number $x\in(a,b)$ such that $f~'(x)=\frac{f(b)-f(a)}{b-a}$.
+    \vspace{0.5em}
+    \item[6.] Let $f$ be a real function and $x\in \text{dom}\ f$ such that $f~'(x)=0$. If $f~''(x)>0$, then $f$ has a local minimum at $x$, 
+        if $f~''(x)<0$, then $f$ has a local maximum at $x$.\\
+    \vspace{0.3em}
+    \begin{block}{Comment}
+        The case in which $f~''(x)=0$ is more complicated, different conditions may occur.\\
+        \hspace{1em}Example 1: $f~'(x)=x^2$.    
+        \hspace{1em}Example 2: $f~'(x)=x^3$.\\
+        As you can see from example 2, $f$ may not even have a local extremum if $f~''(x)=0$.
+    \end{block}
+  
+\end{enumerate}
+
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Application of Differentiation}
+Result and Theorems.\\
+\begin{enumerate}
+    \item[7.] Let $f$ be a twice differentiable function on an open set $\Omega\subseteq \mathbb{R}$. 
+        If $f$ has a local minimum at some point $a\in \Omega$, then $f~''(a)\geq 0$ .
+\end{enumerate}
+\textbf{Proof : }\\
+\hspace{1em} Suppose $f$ has a local minimum at $a$. If $f~''(a)<0$, then $f$ would also have a local maximum at $a$. 
+Thus, $f$ would be constant in some interval containing $a$. So $f~''(a)=0$. But this contradicts to our assumption.\\
+\vspace{2em}
+Comment. An analogous statement is : If $f$ has a local maximum at some point $a\in\Omega$, then $f~''(a)\leq 0$.
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+    \frametitle{Exercise}
+3. This exercise aims to show that differentiation can also be used to prove sequential results. Recall 
+the inequality (see also review 2)
+\begin{equation*}
+    |a+b|^n\leq 2^{n-1}(|a|^n+|b|^n)
+\end{equation*}
+Now try to use differentiable function to prove it.
+\end{frame}
+\begin{frame}
+    \frametitle{Exercise}
+4. Prove that if 
+\begin{equation*}
+    \frac{a_0}{1}+\frac{a_1}{2}+\dots+\frac{a_n}{n+1}=0
+\end{equation*}
+Then $a_0+a_1x+\dots+a_nx^n=0$ for some $x\in[0,1]$
+\end{frame}
+\begin{frame}
+        \frametitle{Exercise}
+    5. Suppose that $f$ satisfies $f~''+f~'g-f=0$ for some function $g$. Prove that if $f$ is 0 at two distinct points, 
+    then $f$ is 0 on the interval between them.
+        
+\end{frame}
+
+\section{Convexity-Concavity}
+\begin{frame}
+    \frametitle{Convexity and Concavity}
+
+For further analysis of functions, we would introduce the concept of \textbf{Convexity} and \textbf{Concavity}. \\
+The definition of these two concepts are as follows.\\
+
+\hspace{1em}
+Let $\Omega\subseteq\mathbb{R}$ be any set and $I\subseteq\Omega$ an interval. A function $f:\Omega\rightarrow\mathbb{R}$ 
+is called convex on $I$ if for all 
+
+\begin{equation*}
+    x, a, b\in I \text{ with } a<x<b, \frac{f(x)-f(a)}{x-a}\leq\frac{f(b)-f(a)}{b-a}
+\end{equation*}
+
+\vspace{0.5em}
+\hspace{1em}
+A strictly convex function is a function that satisfies 
+\begin{equation}
+    \frac{f(x)-f(a)}{x-a}<\frac{f(b)-f(a)}{b-a}.
+\end{equation}
+
+\hspace{1em}
+We say a function $f$ is concave if $-f$ is convex. We say a function $f$ is strictly concave if $-f$ is strictly convex.
+
+
+
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Convexity and Concavity}
+Comment 1. \\
+\vspace{0.5em}
+\hspace{1em}
+We often use "$-$"(minus sign) to define a new definition from an existing one. The benefit is that these two definitions can 
+be strongly related with each other.\\
+\vspace{1em}\pause
+Comment 2.\\
+\hspace{1em}
+There is a quick way to memorize it\dots\hspace{2em}Con\textbf{cave}\dots
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=4cm]{Concave.png}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Convexity and Concavity}
+Results/Theorem \& Comment\\
+\vspace{1em}
+1. Let $f:I\rightarrow\mathbb{R}$ be strictly convex on $I$ and differentiable at $a,b\in I$. Then:
+\begin{enumerate}
+    \item[i] For any $h>0(h<0)$ such that $a+h\in I$, the graph of $f$ over the interval $(a,a+h)$ lies below the secant line through the 
+        points $(a,f(a))$ and $(a+h, f(a+h))$
+    \item[ii] The graph of $f$ over all $I$ lies above the tangent line through the point $(a, f(a))$
+    \item[iii] If $a<b$, then $f~'(a)<f~'(b)$
+\end{enumerate}
+\vspace{1em}
+\textcolor{red}{Draw some pictures to visualize these results!}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Convexity and Concavity}
+Results/Theorem \& Comment\\
+\vspace{1em}
+2. A function $f:I\rightarrow\mathbb{R}$($I$ is an interval) is convex if and only if 
+\begin{equation*}
+    \underset{t\in(0,1)}{\forall}\ \underset{x,y\in I}{\forall}\text{ with } x<y, f(tx+(1-t)y)\leq tf(x)+(1-t)f(y)
+\end{equation*}\\
+
+\textcolor{red}{Draw some pictures to visualize these results!}
+
+\vspace{2em}
+
+3. Let $I$ be an interval, $f:I\rightarrow\mathbb{R}$ differentiable and $f~'$ strictly increasing. If $a, b\in I$, $a<b$ and 
+$f(a)=f(b)$, then 
+\begin{equation*}
+    f(x)<f(a)=f(b)\text{ for all }x\in(a,b)
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Exercise}
+6. This exercise will show why convexity is useful. 
+\begin{enumerate}
+    \item[i]    Let $f$ be a convex function on $[a,b]$. Prove that 
+        \begin{equation*}
+            f(\sum^n_{i=1}\lambda_i x_i)\leq \sum^n_{i=1}\lambda_i f(x_i),\ x_i\in[a,b],\ \sum^n_{i=1}\lambda_i=1,\ \lambda_i>0
+        \end{equation*}
+        This inequality is known as \textbf{Jensen's Inequality}(for discrete measure.)
+    \item[ii] Show that 
+        \begin{equation*}
+            \prod^n_{i=1} a_i^{\lambda_i}\leq \sum^n_{i=1}\lambda_i a_i,\ a_i\geq 0,\ \sum^n_{i=1}\lambda_i=1,\ \lambda_i>0.
+        \end{equation*}
+        This is the inequality you will encounter in your assignment.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Exercise}
+7$^*$. Let $f:[0,1]\rightarrow\mathbb{R}$ be a continuous function. Prove that if $f$ satisfies 
+\begin{equation*}
+    f(\frac{x_1+x_2}{2})\leq \frac{1}{2}(f(x_1)+f(x_2))
+\end{equation*}
+, where $x_1,x_2\leq[0,1]$, then $f$ is convex.
+\end{frame}
+\begin{frame}
+    \frametitle{Exercise}
+8$^*$. Let $f$ be a continuous convex real function on $[a,b]$. Show that $f$ either has one local minimum or infinitely many local minimums on $[a,b]$.
+\end{frame}
+
+
+
+\section{Appendix}
+\begin{frame}
+    \frametitle{Additional Exercise}
+9. Suppose $f:[0,n],n\in \mathbb{N}$ is a continuous function, and is differentiable on $(0,n)$. Furthermore, assume that 
+\begin{equation*}
+    f(0)+f(1)+\dots+f(n-1)=n,\ f(n)=1
+\end{equation*} 
+Show that there must exist $c\in (0,n)$ such that $f~'(c)=0$.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Additional Exercise}
+10$^*$. In this  exercise, we would like to give a deeper investigation of \textcolor{red}{Lipschitz condition}. If a real function $T:\Omega\rightarrow\mathbb{R}$ 
+satisfies
+\begin{equation*}
+    |T(x)-T(y)|\leq k\cdot |x-y|^\alpha
+\end{equation*}
+for any $x,y\in \Omega$, we say $T$ satisfies "\emph{Lipschitz condition of order $\alpha$}".
+\begin{enumerate}
+    \item Show that if $\alpha>0$, then $T$ is continuous.
+    \item Show that if $\alpha>1$, then $T$ is a constant function, i.e.,
+    \begin{equation*}
+        \underset{C\in \mathbb{R}}{\exists}\ T(x)=C
+    \end{equation*}
+\end{enumerate}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{About Mid I}
+    \centering
+    \includegraphics[width=0.72\textwidth]{mid1_dist.png}
+\end{frame}
+\begin{frame}
+    \frametitle{Reference}
+    \begin{itemize}
+        \item Exercises from 2019–Vv186 TA-Zhang Leyang.
+        \item Exercises from 2020-Vv186 TA-Hu Pingbang.
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{End}
+    \centering
+    \LARGE{Thanks!}
+    
+
+\end{frame}
+\end{document}
