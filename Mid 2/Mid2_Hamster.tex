@@ -1,0 +1,184 @@
+\documentclass{beamer}
+\renewcommand\thesection{\arabic{section}}
+\newcommand{\myfont}{\rmfamily\normalsize\upshape\mdseries}
+\newcommand{\degree}{^\circ}
+\newcommand{\R}{\mathbb{R}}
+\title{\sffamily Exercises for Midterm 2}  
+\institute[UM-SJTU JI]{University of Michigan-Shanghai Jiao Tong University Joint Institute}
+\author{HamHam}
+\usepackage{graphicx}
+\usepackage{picinpar}
+\usepackage{indentfirst}
+\usepackage{chemformula}
+\usepackage{geometry}
+\usepackage{subfigure}
+\usepackage{appendix}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{multicol,multirow,multido}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{textpos}
+\usepackage{booktabs}
+
+\usetheme[dove]{Boadilla}
+\usecolortheme{dolphin}
+\useoutertheme{miniframes}
+\begin{document}
+    \usebackgroundtemplate{\tikz\node[opacity=0.3]{
+    \includegraphics[width=\paperwidth,
+    height=\paperheight]{hamster.jpg}
+    };}
+\begin{titlepage}
+    \begin{center}
+        VV186 - Honors Mathmatics II
+    \end{center}
+\end{titlepage}
+\myfont
+
+\begin{frame}
+    \frametitle{Exercises}
+    \hspace{1em}
+    1. Suppose that $(V,+,\cdot)$ is a vector space and let $U,W\subset V$ be two 
+    subspaces. Then:
+    \vspace{1em}
+    \begin{center}
+        \begin{itemize}
+            \item[(A)]$U\cap W \neq \emptyset$
+            \item[(B)]$V~ \backslash U$ is also a subspace of $V$
+            \item[(C)]$U\cup W$ is a subspace of $V$
+            \item[(D)]$U\cap W$ is a subspace of $V$   
+        \end{itemize}
+    \end{center}
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+
+    \hspace{1em}
+    2. Let $(a,b)\subset \R$ be an open interval and denote  $C^1(a,b)\cup C([a,b])$ the vector
+    space of those functions on $(a,b)$ that are continuous on $[a,b]$ and 
+    continuously differentiable on $(a,b)$. On this space a norm is defined by
+    \vspace{1em}
+    \begin{itemize}
+            \item[(A)]$||f~||:=\underset{x\in [a,b]}{\sup} |f~(x)|$
+            \item[(B)]$||f~||:=\underset{x\in [a,b]}{\sup} |f~^\prime(x)|$
+            \item[(C)]$||f~||:=\underset{x\in [a,b]}{\sup} |f~(x)|+\underset{x\in [a,b]}{\sup} |f~'(x)|$
+            \item[(D)]$||f~||:=\underset{x\in [a,b]}{\sup} (|f~(x)|+|f~'(x)|)$
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+    \hspace{1em}
+    3. Let $(a_n)$ be a sequence of real numbers such that
+    $f~(x)=\sum_{n=0}^\infty a_n x^n$ converges at least for 
+    $x \in [0,1]$. Then $f~(x)$
+    \vspace{1em}
+    \begin{itemize}
+        \item[(A)] $f~(x)$ must converge for $x=-1/2$
+        \item[(B)] $f~(x)$ must converge for $x=-1$
+        \item[(C)] $f~(x)$ may or may not converge for $x=-1$
+        \item[(D)] $f~(x)$ never converges for $x=2$
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+    \hspace{1em}
+    4. Suppose that $f: \R \to \R$ is twice differentiable and
+    has a local minimum at $x=0$. Then
+    \vspace{1em}
+    \begin{itemize}
+        \item[(A)] $f$ is convex in a neighborhood of $x=0$
+        \item[(B)] $f~''(0)>0$
+        \item[(C)] $f~''(0) \geq 0$ and $f~''(0)=0$ is possible
+        \item[(D)] $f~'(x)$  is increasing in a neighborhood of $x=0$
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+    \hspace{1em}
+    5. Let $V$ be a vector space over $\mathbb{F}=\R \text{ or } \mathbb{C}$.
+    If one were to define 
+    $$U_1+U_2:= \{ z\in V : \underset{x\in U_1}{\exists} \underset{y \in U_2}{\exists} z=x+y \}$$
+    $$U_1-U_2:= \{ z\in V : \underset{x\in U_1}{\exists} \underset{y \in U_2}{\exists} z=x-y \}$$
+    for subspaces $U_1$, $U_2$ of $V$, then one would have (Adapted from Vv285 practice quiz)
+    \vspace{1em}
+    \begin{itemize}
+        \item[(A)] $U_1-U_2= {0}$ 
+        \item[(B)] $(U_1-U_2)+U_2=U_1$
+        \item[(C)] $U_1-U_2=U_1+U_2$  
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+    \hspace{1em}
+    6. (i) Does the following series converge?
+    $$\sum_{n=0}^\infty \frac{(2n)!(3n)!}{n!(4n)!}$$
+    \pause
+    \hspace{2em}   
+    (ii) For which $a \in \R$ does the following series converge?
+    $$\sum_{n=0}^\infty (\frac{1}{n}-\sin(\frac{1}{n}))^a$$
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+    \hspace{1em} 7. Let $f: [0,2\pi ] \to \R$ be given by  
+    $$f~(x)=\frac{1}{1+e^{\pi-x }\sin (x)}$$
+    \vspace{1em}
+    \begin{itemize}
+        \item[(i)] For which $x$ is $f~'(x)=0$? Derive the solution to the equation $\sin(x)=\cos(x)$, $x \in [0,2\pi]$
+        \item[(ii)] Where is $f $ increasing? Where is $f $ decreasing?
+        \item[(iii)] Find the \textcolor{red}{local extrema} of $f$ 
+        \item[(iv)] What can you say about the convexity and concavity of $f$?
+        \item[(v)] Sketch the graph of $f$, clearly indicating any siginicant features of the graph  
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+    \hspace{1em}
+    8$^*$. Suppose that $(f_n)$ is a sequence of increasing functions
+    $f_n: [0,1] \to [0,1]$, $n \in \mathbb{N}$, such that 
+    $$\underset{n\to \infty}{\lim} f_n(x) =f~(x) \text{ ~~~~~~~~~~~~~~~~ for all } x \in [0,1],$$
+    Suppose that $f$ is a continuous function. Show that the convergence is uniform.
+    \par \textbf{(Note that the functions $f_n$ are not assumed to be continuous.)}
+    \\ \vspace{2em}
+    Comment. This is also called \itshape Dini's theorem.\myfont
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+    \hspace{1em}
+    9. Let $(f_n)$ be a sequence of functions in $C([a,b])$, 
+    and $(f_n)$ converges to some function $f$ uniformly. 
+    Prove that if $f\neq 0$ on $[a,b]$, then $(\frac{1}{f_n} )$ converges to $\frac{1}{f}$ uniformly.
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+    \hspace{1em}
+    10. Prove that if a positive series $a_n$ diverges, then 
+    $$\sum \frac{a_n}{1+a_n}$$
+    also diverges.
+    
+
+\end{frame}
+\begin{frame}
+    \frametitle{End}
+    \centering
+    \LARGE{Good Luck!}
+
+\end{frame}
+\begin{frame}
+    \frametitle{Reference}
+    \begin{itemize}
+        \item Exercises from 2020 Vv186 Midterm 2.
+        \item Exercises from 2021 Vv285 Practice Quiz
+        \item Exercises from my RC4-RC7.
+     \end{itemize}
+\end{frame}
+\end{document}
