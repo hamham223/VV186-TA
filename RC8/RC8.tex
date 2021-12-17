@@ -1,0 +1,230 @@
+\documentclass{beamer}
+\renewcommand\thesection{\arabic{section}}
+\newcommand{\myfont}{\rmfamily\normalsize\upshape\mdseries}
+\newcommand{\degree}{^\circ}
+\title{\sffamily Review VIII Practical Integral(Slides 555-567)}
+\subtitle{\textbf{Integrate!Integrate!Integrate!}\\}
+\institute[UM-SJTU JI]{University of Michigan-Shanghai Jiao Tong University Joint Institute}
+\author{HamHam}
+\usepackage{graphicx}
+\usepackage{picinpar}
+\usepackage{indentfirst}
+\usepackage{chemformula}
+\usepackage{geometry}
+\usepackage{subfigure}
+\usepackage{appendix}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{multicol,multirow,multido}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{textpos}
+\usepackage{booktabs}
+
+\usetheme[dove]{Boadilla}
+\usecolortheme{dolphin}
+\useoutertheme{miniframes}
+\begin{document}
+    \usebackgroundtemplate{\tikz\node[opacity=0.3]{
+    \includegraphics[width=\paperwidth,
+    height=\paperheight]{hamster.jpg}
+    };}
+\begin{titlepage}
+    \begin{center}
+        VV186 - Honors Mathmatics II
+    \end{center}
+\end{titlepage}
+\myfont
+
+\begin{frame}
+    \frametitle{Integration}
+    \centering
+    \includegraphics[height=0.85\textheight]{integral.jpg}
+\end{frame}
+\begin{frame}
+    \frametitle{Can you find the original formula?}
+    \centering
+    \includegraphics[height=0.8\textheight]{fourier.jpg}
+\end{frame}
+\begin{frame}
+    \frametitle{Integration Method}
+    Method0: Symmetry\\
+    \vspace{1em}\hspace{1em}
+    Suppose $f~(x)$ is an odd integrable function, then $$\int_{-a}^a f~(x)dx=0$$
+    \\
+    \vspace{1em}
+    \hspace{1em} Exercises: For $a>0$, calculte 
+    $$\int_{-a}^a \frac{\cos(x)}{1+e(x)^{o(x)}} dx$$
+    where $e(x)$ is a continuous strictly positive even function, and $o(x)$ is an odd function
+\end{frame}
+\begin{frame}
+    \frametitle{Integration Method}
+    Method1: Recite!\\
+    \vspace{1em}
+    Common indefinite integrals include:
+    \begin{itemize}
+        \item $\int x^\alpha dx=\frac{x^{\alpha+1}}{\alpha+1} +C$
+        \item $\int e^x dx=e^x +C $
+        \item $\int \frac{1}{x}dx=\ln(|x|)+C$
+        \item $\int \cos x~ dx = \sin x +C$
+        \item $\int \sin x~ dx = -\cos x +C$
+        \item $\int \ln(x)= ?$
+    \end{itemize}
+    For more complex integrals, we need other theorems to help us evaluate
+them.
+\end{frame}
+\begin{frame}
+    \frametitle{Exercise}
+    Calculte the following integrals:
+    \begin{itemize}
+        \item $$\int \frac{2}{\sqrt{x}^3} dx$$
+        \item $$\int_3^7 \frac{1}{x^2+6x+5} dx$$
+    \end{itemize}
+    \vspace{1em}
+    \hspace{1em}
+    \itshape
+    Comment. Partial fraction is sometimes powerful!\myfont
+\end{frame}
+\begin{frame}
+    \frametitle{Integration Method}
+    Method2: Substitution!\\
+    \vspace{1em}
+    \begin{itemize}
+        \item Let $u=g(x)$.
+        \item Compute $du=g'(x)$.
+        \item Substitute $g(x)=u$ and $g'(x)=du$. \textbf{At this moment, only $u$, no $x$ !!!}
+        \item Calculte the above integral of $u$, it should be easier.
+        \item Replace $u$ by $g(x)$ to get the result with $x$.
+        \item For definite integral, pay attention to the range.
+    \end{itemize}
+    \begin{block}{Demo}
+        $$1. \int sin(x) cos(x) dx ~~~~~~~~~~~~~~~~~2.\int \frac{1}{1+x^2} dx$$
+    \end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{Exercise}
+    Calculte the following integrals:
+    \begin{itemize}
+        \item $$\int_{-1}^3 \sqrt{9-x^2} dx$$
+        \item $$\int \tan(x) dx$$
+        \item $$\int \frac{x}{3x^2+6x+10} dx$$
+        \item $$\int \frac{e^{4x}}{1+e^{2x}} dx$$
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Integral Method}
+    Method3: Integration by part!\\
+    \vspace{1em}
+
+    For definite integral:
+    $$\int_a^b f~'(x)g(x) dx=f~(x)g(x) \Big|_a^b-\int_a^b f~(x)g'(x) dx$$
+    For indefinite integral:
+    $$\int f~'(x)g(x) dx=f~(x)g(x) -\int f~(x)g'(x) dx$$
+    Demo:
+    $$\int x \sin (x) dx$$
+\end{frame}
+\begin{frame}
+    \frametitle{Exercise}
+
+    \begin{itemize}
+        \item $$\int x^2 e^{-x} dx$$
+        \item $$\int (\ln x)^2 dx$$
+        \item $$\int_0^{\frac{\pi}{2}} \sin^n x ~dx$$
+    \end{itemize}
+
+\end{frame}
+\begin{frame}
+    \frametitle{Methodology}
+    \textbf{\textcolor{red}{1. Substitute what? When to subsitute?}}
+    \begin{block}{Depend on your luck!}
+        \begin{itemize}
+            \item $\sqrt{a- x^2} \mapsto \text{ use } x=\sqrt{a}\sin(u)$
+            \item $x^2+a^2 \mapsto \text{ use } x=a\tan (u)$
+            \item $x^2-a^2 \mapsto \text{ use } x=a \csc(u)$
+            \item Similar terms? Complex terms?
+            \item Other method? Partial fraction?
+        \end{itemize}
+    \end{block}
+    \textbf{\textcolor{red}{2. Integrate by part: which to integrate, which to differentiate?}}
+    \begin{block}{Practice makes perfect!}
+        \begin{itemize}
+            \item Easy and simple terms --> integrate.
+            \item DI table.
+        \end{itemize}
+    \end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{Integral Method}
+    Method4: DI Table! (Enhanced version of Method3)
+    \\
+    \vspace{3em}\hspace{1em}
+    \href{https://www.youtube.com/watch?v=2I-_SV8cwsw}{\large{\textcolor{blue}{DI Table Method!}}}
+    (Youtube link, VPN required) \\
+    \hspace{1em} Link: \url{https://www.youtube.com/watch?v=2I-_SV8cwsw}
+    \vspace{1em}
+    \\\hspace{1em}
+This is an explanation video on DI method, you can also find other
+interesting and useful math videos on this channel. After watch the video, calculte
+$$\mathcal{L}\sin(x)=\int_0^{\infty} e^{-px} \sin(bx) dx$$
+This is called the \itshape Laplace Transform.\myfont
+\end{frame}
+\begin{frame}
+    \frametitle{Some challenge!}
+    More Integration Method? Take VV286!
+    \vspace{2em}
+    $$\int \frac{1}{x^4} dx \longmapsto \int \frac{1}{x^4+4}dx \longmapsto \int_{-\infty}^{\infty} \frac{1}{x^4+1} dx$$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Farewell}
+    \begin{itemize}
+        \item Congratulation! You are almost done! Thanks for your hard-working!
+        \item I'm really glad to be your TA, thanks for your support! 
+        \item Perhaps I can't be your Vv285 TA... but    wish you all the best in your future life 
+        and find your own way in JI!
+        \pause
+    \vspace{1em}\\
+        After VV186: (there are more math classes waiting you)
+    \end{itemize}
+        \begin{itemize}
+        \item Honors Mathematics Sequence: \textcolor{gray}{VV186}-VV285-VV286
+        \item \textcolor{gray}{Linear Algebra: VV214 / VV417}
+        \item Discrete Mathematics: VE203
+        \item \textcolor{gray}{Probabilistic Methods in Engineering: VE401}
+        \item \textcolor{gray}{Partial Differential Equations: VV557}
+    \end{itemize}
+    \hspace{1em}
+    \tiny{another choice is taking vv255!}
+\end{frame}
+\begin{frame}
+    \frametitle{A simple question¿}
+    \LARGE
+    Every now and then, ask yourself: \\
+    \vspace{1em}
+    \hspace{1em}
+    what is “math” based on all the math you have learned in your life?
+    \\\hspace{4em}--question from my TA's TA
+
+
+\end{frame}
+\begin{frame}
+    \frametitle{Reference}
+    \begin{itemize}
+        \item Exercises from 2020--Vv186 TA-Xia Yuxuan.
+        \item Exercises from Vv286 Assignment and Slides.
+        \item Picture on the door of Dr. Horst Hohberger's Office.
+        \item Mathematical Analysis I. \itshape School of Mathematical Sciences, ECNU,\myfont version 5. 
+        Beijing: High Education Press, 2019.5 print.
+        \item Exercise from JI first integration bee.
+    \end{itemize}
+\end{frame}
+\end{document}
