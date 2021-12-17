@@ -1,0 +1,323 @@
+\documentclass{beamer}
+\renewcommand\thesection{\arabic{section}}
+\newcommand{\myfont}{\rmfamily\normalsize\upshape\mdseries}
+\newcommand{\degree}{^\circ}
+\title{\sffamily Review I(Slides 24 - 55)}
+\subtitle{\textbf{Logics}\\``Without logic, mathematics will falls apart... "}
+\institute[UM-SJTU JI]{University of Michigan-Shanghai Jiao Tong University Joint Institute}
+\author{HamHam}
+\usepackage{graphicx}
+\usepackage{picinpar}
+\usepackage{indentfirst}
+\usepackage{chemformula}
+\usepackage{geometry}
+\usepackage{subfigure}
+\usepackage{appendix}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{multicol,multirow,multido}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{textpos}
+\usepackage{booktabs}
+
+\usetheme[dove]{Boadilla}
+\usecolortheme{dolphin}
+\useoutertheme{miniframes}
+\begin{document}
+    \usebackgroundtemplate{\tikz\node[opacity=0.3]{
+    \includegraphics[width=\paperwidth,
+    height=\paperheight]{hamster.jpg}
+    };}
+\begin{titlepage}
+    \begin{center}
+        VV186 - Honors Mathmatics II
+    \end{center}
+\end{titlepage}
+\myfont
+\section{Logics}
+\begin{frame}
+    \frametitle{Statement}
+        First, recall the definition...
+        \vspace*{1em}
+        \begin{itemize}
+            \item statement
+            \begin{itemize}
+                \item true statement 
+                \item false statement
+            \end{itemize}
+            \item statement structure
+            \begin{itemize}
+                \item quantifier
+                \item statement frame/predicate
+                \item specific value
+            \end{itemize}
+            \item vacuous truth
+                \begin{itemize}
+                    \item pink elephants could fly!
+                    \item more examples?
+                \end{itemize}
+        \end{itemize}
+        \vspace*{1em}
+        \myfont
+        Easy... but be careful! \\
+        \textcolor{red}{Definitions? Examples? Notations?}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Logical Operation}
+    \begin{table}
+        \centering
+        \resizebox{6cm}{!}{
+        \begin{tabular}{c|cc|c}
+            \hline \hline
+            Type &\multicolumn{2}{c|}{ Logical Operation } & Priority\\
+            \hline
+            unary& $\neg$&Negation & 1\\ \hline
+                 & $\wedge$ &Conjunction & 2 \\ 
+                & $\vee$&Disjunction & 3\\
+                &  $\Rightarrow$ & Implication & 4\\
+                \multirow{-4}{*}{binary}   & $\Leftrightarrow$ & Equivalence & 5\\
+            \hline \hline
+        \end{tabular}
+        }
+    \end{table}
+    \begin{itemize}
+    \item  compound statement
+    \begin{itemize}
+        \item \itshape tautology
+        \item contradiction
+        \item contingency
+    \end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Truth Table}
+    \begin{itemize}
+        \item Can you draw the truth table of \itshape Implication?
+            \begin{itemize}
+                \myfont
+                \item How to explain F$\Rightarrow$T?
+            \end{itemize}
+        \myfont
+        \item How to use a truth table?
+        \begin{itemize}
+            \item Understand the problem is about
+            \item Cover all the possible situations
+            \item e.g. Prove the following using truth table:(see assignments) \\
+                \vspace*{1em}
+                \* \* \* \* \* \* \* \*
+                    $\neg(A\wedge B)\Leftrightarrow(\neg A)\vee(\neg B)$ \* \* \* \* 
+                (\textbf{\itshape de Morgen rules})
+        \end{itemize}
+    \end{itemize}
+    \vspace*{5em}
+\end{frame}
+\begin{frame}
+    \frametitle{Relations}
+    \begin{itemize}
+        \item Proof by Contradiction
+        \begin{equation*}
+            (A \Rightarrow B) \equiv \neg (A \wedge \neg B)
+        \end{equation*}
+        \item Proof by Contraposition 
+        \begin{equation*}
+            (A\Rightarrow B) \equiv (\neg B \Rightarrow \neg A)
+        \end{equation*}
+    \end{itemize}
+    \begin{block}{
+    Quick check:}
+    \begin{enumerate}
+        \item What is \textbf{iff}?
+        \item What is \textbf{logically equivalent}? \\
+            A: You take the course Vv186. \\
+            B: I eat breakfast everyday. \\
+            \begin{center}
+                A$\Leftrightarrow$B or A$\equiv$B ?        
+            \end{center}
+    \end{enumerate}
+    \end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{Logical Quantifiers}
+    \begin{table}
+        \centering
+        \resizebox{12cm}{!}{%
+        \begin{tabular}{ccc}
+            \toprule
+            \multicolumn{3}{c}{Logical Quantifiers}\\
+            \midrule
+            Sign & Type & Interpretation\\
+            \hline
+            $\forall$ & universal & for any; for all\\
+            $\exists$ & existential & there exist; there is some\\
+            $\forall \dots \forall \dots $ & nesting quantifier& for all \dots for all \dots \\
+            $\exists \dots \exists \dots $ & nesting quantifier& there exists \dots (such that) there exist \dots \\
+            $\forall \dots \exists \dots $ & nesting quantifier& for any \dots, there exists \dots\\
+            $\exists \dots \forall \dots $ & nesting quantifier& there exists \dots (such that) for any \dots\\
+            \dots &\dots&\dots\\
+            \bottomrule
+        \end{tabular}%
+        }
+    \end{table} 
+    \vspace*{1em}
+    \begin{itemize}
+        \item Try use your own words to interpret them!(see exercises)
+        \item Order matters!
+    \end{itemize}
+\end{frame}
+\section{Sets}
+\begin{frame}
+    \frametitle{Sets}
+    \begin{itemize}
+        \item What is a set?
+        \item Common Type
+        \begin{itemize}
+            \item Empty set: $\emptyset := \{x:x\neq x\}$
+            \item Total set
+            \item Subset
+            \item Proper subset
+            \item Power set(finite)
+        \end{itemize}   
+        \item Cardinality(finite) 
+    \end{itemize}
+    \vspace*{1em}
+    \begin{block}{
+    Quick cheak:}
+    \hspace{1em} 
+    Let $X=\{x:P(x)\}.$  Is $P(x)$ a statement?
+    \end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{Operations on Sets}
+    Let
+    \begin{equation*}
+        A:=\{1,2\} \quad B:=\{2,3\} \quad M:=\{1,2,3,4,5\}
+    \end{equation*}
+    \begin{table}
+        \centering
+        \resizebox{6cm}{!}{%
+        \begin{tabular}{ccc}
+            \toprule
+            \multicolumn{3}{c}{Set Operations}\\
+            \midrule
+            $A\cup B$ & Union & $\{1,2,3\}$\\
+            $A\cap B$ & Intersection & $\{2\}$\\
+            $A\setminus B$ & Difference & $\{1\}$\\
+            $A^c $ & Complement & $\{3,4,5\}$\\
+            \bottomrule
+        \end{tabular}%
+        }
+    \end{table}  
+    \begin{itemize}
+        \item The notation $A - B $ is also used for $A\setminus B$ and $\bar{A}$ for $A^c$
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Ordered Pairs}
+\begin{itemize}
+    \item What is an ordered pair?
+    \item What is the difference between ordered pair and set?
+    \item Concept of \itshape{Cartesian product}\myfont.
+\end{itemize}
+\vspace{1em}
+$$A \times B := \{(a,b):a \in A, b \in B\}$$
+$$\mathbb{R}^2=\mathbb{R} \times \mathbb{R}$$
+\vspace*{7em}
+\end{frame}
+%\begin{frame}
+%    \frametitle{Conceptual diagram}
+%    \usetikzlibrary{mindmap}
+%    \begin{tikzpicture}[mindmap, concept color=blue!60]
+%        \node [extra concept] {Statement}
+%            child[concept color=red!50,grow=30] {node[concept] (c1) {Statement structure}}
+%            child[concept color=orange!50,grow=0] {node[concept] {vacuous truth}};
+%        \node [extra concept] at (3,-2) {Sets}
+%            child[concept color=green!50, grow=0] {node[concept] {operations}};
+%        \node [extra concept] (c2) at (8,1) {Logical operators};
+%        \node [extra concept] (c3) at (9,3) {Truth Table};
+%        \begin{pgfonlayer}{background}
+%            \draw [extra concept connection] 
+%                                           
+%                                        (c2) edge (c3);
+%            \end{pgfonlayer}
+%    \end{tikzpicture}
+%\end{frame}
+\section{Exercises}
+\begin{frame}
+    \frametitle{Exercises}
+    1. Let $A, B, C$ be three statements. Use truth table to prove that 
+    \begin{equation*}
+        (A\vee B)\wedge C \equiv (A\wedge C)\vee (B\wedge C)
+    \end{equation*}
+    2. Let $A, B, C$ be three sets. Prove that
+    \begin{equation*}
+        (A\cup B)\cap C =(A\cap C)\cup (B\cap C)
+    \end{equation*}
+    \begin{itemize}
+        \item From Exercise 1 \& 2, we can see that sets and statements are similar.
+        \item Venn diagram?
+    \end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Exercises}
+3. Check whether the following sentences are true statement, false statement, or not a statement.
+\begin{itemize}
+    \item $\forall x, y\in \mathbb{R}, x^2+y^3\geq 0$
+    \item Let  $f(a)=a^4$, then $f(0)>0$
+    \item For any $a\in \mathbb{R}, a^4>0$
+    \item An African Elephant is very big.
+    \item Let $A, B$ be two statements, then $(A\vee B)\Leftrightarrow\neg(\neg A\wedge\neg B)$
+\end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+4. Use quantifiers to rewrite the following definition of covergence:
+\par \vspace{2em} \hspace{1em} Let $(a_n)_{n\in \mathbb{N}}$ be a real sequence. If for some fixed $a \in \mathbb{R}$, 
+for any $\varepsilon>0$, there is an $N\in \mathbb{N}$, such that for all $n>N$, $|a_n-a|<\varepsilon$,\\ then we
+say $(a_n)$ converges to $a$.\\
+\vspace{2em}
+What's the negation of this statement?
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+    5. Interpret the following statement with your own words:\\
+    \begin{equation*}
+        \forall x(H(x)\vee \exists y(H(y)\wedge F(x,y)))
+    \end{equation*}    
+    Here $H(x)$ means "$x$ takes Vv186", $F(x,y)$ means "$x$ and $y$ are friends", 
+    both $x$ and $y$ represent a freshman student in JI.
+\end{frame}
+\begin{frame}
+    \frametitle{Exercises}
+    6$^*$. Sheffer stroke \& Peirce arrow (also see in assignments)\\[1em]
+    p NAND q: false iff p\&q are both true, marked as $p$ | $q$ \\
+    p NOR q : \* true iff p\& are both false, marked as $p\downarrow q$\\[1em]
+    Do the following: \\
+    \begin{itemize}
+        \item Draw the truth table of NAND and NOR
+        \item Prove that $p\downarrow q$ is logically equivalent to $\neg(p\vee q)$
+        \item Prove taht $p$ | $q$ is equivalent to $q$ | $p$
+        \item Use the operator $\downarrow$ only to construct the statement $p\Rightarrow q$
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Reference}
+    \begin{itemize}
+        \item Exercises from 2019--Vv186 TA-Zhang Leyang.
+        \item Exercises from 2020--Vv186 TA-Xia Yuxuan.
+        \item Exercises from 2020--Vv186 TA-Hu Pingbang.
+        \item Kenneth, H.Rosen. Translated by Xu Liutong etc. \itshape Discrete Mathematics amd Its Applications\myfont, 
+                 Eightth Edition, Chinese Abridgement. China Machine Press, 2019 print.
+    \end{itemize}
+\end{frame}
+\end{document}

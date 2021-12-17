@@ -1,0 +1,3 @@
+\beamer@sectionintoc {1}{Logics}{1}{0}{1}
+\beamer@sectionintoc {2}{Sets}{7}{0}{2}
+\beamer@sectionintoc {3}{Exercises}{10}{0}{3}
